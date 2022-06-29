@@ -45,15 +45,15 @@ bool file_is_exist(std::string filePath)
 
 bool fileparser(){	
 	if (strlen(path) == 0){
-		cout << "hotite zapisat calendar in file? /yes /no" << endl;
+		cout << "do you want write calendar in file? /yes /no" << endl;
 		char ans[5] = "";
 		cin >> ans;
 		if (strcmp(ans, "/yes") == 0){
-			cout << "vvedite path to file:" << endl;
+			cout << "input path to file:" << endl;
 			cin >> path;
 		}
 		else if (strcmp(ans, "/no") == 0){
-			cout << "file ne budet sozdan" << endl;
+			cout << "file wont be create" << endl;
 			return true;	
 		}
 		else{
@@ -63,7 +63,7 @@ bool fileparser(){
 	}
 	//bool exist = std::filesystem::exists(path);
 	if (file_is_exist(path)){
-		cout << "vash file exist vi hotiite ego perezapisat? /yes /no" << endl;
+		cout << "your file exists you want rewrite it? /yes /no" << endl;
 		char ans1[5] = "";
 		cin >> ans1;
 		if (strcmp(ans1, "/yes") == 0)
@@ -76,7 +76,7 @@ bool fileparser(){
 		}                                  
 	}
 	else{
-		cout << "file budet cozdan" << endl;
+		cout << "file will be create" << endl;
 		fout.open(path);
 		if (!fout.is_open()){
 			cout << "wrong path to file, restart programm" << endl;
@@ -95,14 +95,14 @@ int main(int narg, char *argc[]){
 	SetConsoleOutputCP(1251);
 	if ((narg > 8) or (narg < 2)){
 		//cout << "напишите -info если хотите узнать как пользоваться календарем" << endl;
-		cout << "napishite /info esli hotite uznat kak polzovatsya kalendarem" << endl;
+		cout << "write /info if you want to know how to use calendar" << endl;
 		char info[10] = "";
 		cin >> info;
 		if (strcmp(info, "/info") == 0){
 			//cout << "первый параметр месяц: /M 3 второй параметр год: /Y 2003 " << endl;
-			cout << "pervii parametr month: /M 3"<< endl;
-			cout << "vtoroi parametr year: /Y 2003 " << endl;
-			cout << "tretii parametr file: /F ... " << endl;
+			cout << "first parametr month: /M 3"<< endl;
+			cout << "second parametr year: /Y 2003 " << endl;
+			cout << "third parametr file: /F ... " << endl;
 			cout << "thank you for using my calendar, yours zmil-17";
 			exit(1);
 		}
@@ -128,13 +128,13 @@ int main(int narg, char *argc[]){
 	}
 	if ((month > 12) or (month < 1)){
 		if (year)
-		cout << "ya prochital mecyac: " << wrong_month <<endl;
-		cout << "vvedite eshe raz";
+		cout << "i read the month: " << wrong_month <<endl;
+		cout << "input again";
 		exit(3);
 	}
 	if (!year){
-		cout << "ya prochital year: " << wrong_year <<endl;
-		cout << "vvedite eshe raz";
+		cout << "i read the year: " << wrong_year <<endl;
+		cout << "input again";
 		exit(4);
 	}
 //спрашиваю у пользователя нужен ли ему файл и создаю его 
